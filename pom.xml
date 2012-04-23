@@ -4,22 +4,57 @@
     <groupId>com.scottbyrns.api</groupId>
     <artifactId>client</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.1</version>
-    <name>api-client</name>
-    <url>http://maven.apache.org</url>
+    <version>1.0.2</version>
+
+
+
+    <name>
+        RESTful Client API
+    </name>
+
+    <description>
+        Generic Java RESTFul Client API for making requests to JSON providing endpoints.
+    </description>
+
+
+    <url>
+        https://github.com/scottbyrns/Java-RESTFul-Client-API
+    </url>
+
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/scottbyrns/Java-RESTFul-Client-API</url>
+        <connection>git://github.com/scottbyrns/Java-RESTFul-Client-API.git</connection>
+    </scm>
+    <developers>
+        <developer>
+            <id>scottbyrns</id>
+            <name>Scott Byrns</name>
+            <email>contact@scottbyrns.com</email>
+        </developer>
+    </developers>
+
 
     <properties>
 
-        <utilities.version>1.0.0</utilities.version>
+        <JSONObjectMapper.version>1.0.1</JSONObjectMapper.version>
 
     </properties>
 
     <dependencies>
 
         <dependency>
-            <groupId>com.scottbyrns</groupId>
-            <artifactId>utilities</artifactId>
-            <version>${utilities.version}</version>
+            <groupId>com.scottbyrns.utilities</groupId>
+            <artifactId>json-object-mapper</artifactId>
+            <version>${JSONObjectMapper.version}</version>
         </dependency>
 
         <dependency>

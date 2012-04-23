@@ -1,5 +1,7 @@
 package com.scottbyrns.api.client;
 
+import com.scottbyrns.utilities.FatalMappingException;
+import com.scottbyrns.utilities.InvalidJSONStringException;
 import com.scottbyrns.utilities.JSONObjectMapper;
 
 import java.io.IOException;
@@ -45,14 +47,17 @@ public class APIResponse<ResponseEntity>
         {
             try
             {
-                responseEntity = (ResponseEntity)JSONObjectMapper.getInstance().getDefaultObjectMapper().readValue(
+                responseEntity = JSONObjectMapper.getInstance().<ResponseEntity>mapJSONStringToEntity(
                         getRawResponseString(),
                         entityClass
                 );
+
             }
-            catch (IOException e)
-            {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            catch (InvalidJSONStringException e) {
+                e.printStackTrace();
+            }
+            catch (FatalMappingException e) {
+                e.printStackTrace();
             }
         }
         return responseEntity;
