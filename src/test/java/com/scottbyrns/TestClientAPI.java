@@ -47,6 +47,27 @@ public class TestClientAPI {
     }
 
     @Test
+    public void testRequestWithoutARequestType () {
+        APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/");
+        geocoderApiRequest.setRequestUrl("json?address={$address}&sensor={$sensor}");
+
+        /**
+         * Null pointer when no request type is set.
+         * geocoderApiRequest.setRequestType(RequestType.GET);
+         */
+
+        geocoderApiRequest.addRequestParameter("address", "280 N 8th St. Boise, Idaho");
+        geocoderApiRequest.addRequestParameter("sensor", "false");
+
+        try {
+            APIClient.getInstance().makeRequest(geocoderApiRequest);
+        }
+        catch (NullPointerException e) {
+            fail("A null pointer was thrown when attempting to make an api request.");
+        }
+    }
+
+    @Test
     public void testRequest () {
         APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/");
         geocoderApiRequest.setRequestUrl("json?address={$address}&sensor={$sensor}");
