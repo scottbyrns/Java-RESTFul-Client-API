@@ -24,7 +24,7 @@ import static junit.framework.Assert.fail;
  */
 public class TestClientAPI {
 
-    @Test
+//    @Test
     public void testRequestWithoutARequestURL () {
         APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/json?address={$address}&sensor={$sensor}");
         /*
@@ -46,14 +46,32 @@ public class TestClientAPI {
 
     }
 
-    @Test
-    public void testRequest () {
+//    @Test
+    public void testBadRequest () {
         APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/");
         geocoderApiRequest.setRequestUrl("json?address={$address}&sensor={$sensor}");
 
         geocoderApiRequest.setRequestType(RequestType.GET);
 
         geocoderApiRequest.addRequestParameter("address", "280 N 8th St. Boise, Idaho");
+        geocoderApiRequest.addRequestParameter("sensor", "false");
+
+        try {
+            APIClient.getInstance().makeRequest(geocoderApiRequest);
+        }
+        catch (IllegalArgumentException e) {
+            fail("An illigal argument exception was thrown.");
+        }
+    }
+
+    @Test
+    public void testGoodRequest () {
+        APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/");
+        geocoderApiRequest.setRequestUrl("json?address={$address}&sensor={$sensor}");
+
+        geocoderApiRequest.setRequestType(RequestType.GET);
+
+        geocoderApiRequest.addRequestParameter("address", "280+N+8th+St.+Boise,+Idaho");
         geocoderApiRequest.addRequestParameter("sensor", "false");
 
         try {
