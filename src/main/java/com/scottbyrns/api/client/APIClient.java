@@ -34,17 +34,17 @@ public class APIClient
     {
     }
 
-    private JSONObjectMapper objectMapper = JSONObjectMapper.getInstance();
+//    private JSONObjectMapper objectMapper = JSONObjectMapper.getInstance();
 
-    /**
-     * Get the JSON Object mapper.
-     *
-     * @return JSON Object Mapper.
-     */
-    private JSONObjectMapper getObjectMapper()
-    {
-        return objectMapper;
-    }
+//    /**
+//     * Get the JSON Object mapper.
+//     *
+//     * @return JSON Object Mapper.
+//     */
+//    private JSONObjectMapper getObjectMapper()
+//    {
+//        return objectMapper;
+//    }
 
 
     /**
