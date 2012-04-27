@@ -4,8 +4,7 @@
     <groupId>com.scottbyrns.api</groupId>
     <artifactId>client</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.2</version>
-
+    <version>1.0.3-SNAPSHOT</version>
 
 
     <name>
@@ -35,26 +34,27 @@
         <connection>git://github.com/scottbyrns/Java-RESTFul-Client-API.git</connection>
     </scm>
     <developers>
-    <developer>
-      <id>scott</id>
-      <name>Scott Byrns</name>
-      <email>contact@scottbyrns.com</email>
-      <url>http://github.com/scottbyrns</url>
-      <organization>Scott Byrns</organization>
-      <organizationUrl>http://github.com/scottbyrns</organizationUrl>
-      <roles>
-        <role>architect</role>
-        <role>developer</role>
-      </roles>
-      <timezone>-10</timezone>
-      <properties>
-        <picUrl>http://tinyurl.com/scottbyrns</picUrl>
-      </properties>
-    </developer>
+        <developer>
+            <id>scott</id>
+            <name>Scott Byrns</name>
+            <email>contact@scottbyrns.com</email>
+            <url>http://github.com/scottbyrns</url>
+            <organization>Scott Byrns</organization>
+            <organizationUrl>http://github.com/scottbyrns</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>-10</timezone>
+            <properties>
+                <picUrl>http://tinyurl.com/scottbyrns</picUrl>
+            </properties>
+        </developer>
     </developers>
 
 
     <properties>
+
 
         <JSONObjectMapper.version>1.0.4</JSONObjectMapper.version>
 

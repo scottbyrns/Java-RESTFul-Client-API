@@ -84,4 +84,22 @@ public class TestClientAPI {
             fail("An illigal argument exception was thrown.");
         }
     }
+
+    @Test
+    public void testGoodRequest () {
+        APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/");
+        geocoderApiRequest.setRequestUrl("json?address={$address}&sensor={$sensor}");
+
+        geocoderApiRequest.setRequestType(RequestType.GET);
+
+        geocoderApiRequest.addRequestParameter("address", "280+N+8th+St.+Boise,+Idaho");
+        geocoderApiRequest.addRequestParameter("sensor", "false");
+
+        try {
+            APIClient.getInstance().makeRequest(geocoderApiRequest);
+        }
+        catch (IllegalArgumentException e) {
+            fail("An illigal argument exception was thrown.");
+        }
+    }
 }
