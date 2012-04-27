@@ -47,7 +47,7 @@ public class APIResponse<ResponseEntity>
         {
             try
             {
-                responseEntity = (ResponseEntity)JSONObjectMapper.getInstance().<ResponseEntity>mapJSONStringToEntity(
+                responseEntity = (ResponseEntity)JSONObjectMapper.<ResponseEntity>mapJSONStringToEntity(
                         getRawResponseString(),
                         entityClass
                 );

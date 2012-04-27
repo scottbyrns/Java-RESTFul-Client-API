@@ -56,7 +56,7 @@
 
     <properties>
 
-        <JSONObjectMapper.version>1.0.1</JSONObjectMapper.version>
+        <JSONObjectMapper.version>1.0.4</JSONObjectMapper.version>
 
     </properties>
 
