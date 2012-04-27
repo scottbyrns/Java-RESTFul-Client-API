@@ -20,6 +20,21 @@ public class APIRequest
     private String requestUrl;
     private Map<String, String> requestParametersMap = new HashMap<String, String>();
 
+
+//    // Positive Events
+//    APIRequest.SUCCESS
+//    APIRequest.REQUEST_COMPLETE
+//    APIRequest.SENDING_REQUEST
+//    APIRequest.RESPONSE_RECIEVED
+//
+//    // Negative Events
+//    APIRequest.FAILURE
+//    APIRequest.SERVER_ERROR
+//    APIRequest.NETWORK_ERROR
+//    APIRequest.INTERUPTED
+//    APIRequest.TIMEOUT
+//    APIRequest.STALLED
+
     public APIRequest(String baseRequestUrl) {
         this.baseRequestUrl = baseRequestUrl;
     }

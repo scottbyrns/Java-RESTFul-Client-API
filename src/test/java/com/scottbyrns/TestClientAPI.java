@@ -24,6 +24,9 @@ import static junit.framework.Assert.fail;
  */
 public class TestClientAPI {
 
+    public static boolean testRequestWithNewInterfaceSharedBooleanPassed = false;
+    public static boolean testRequestWithNewInterfaceSharedBooleanFailed = false;
+
     @Test
     public void testRequestWithoutARequestURL () {
         APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/json?address={$address}&sensor={$sensor}");
@@ -101,5 +104,53 @@ public class TestClientAPI {
         catch (IllegalArgumentException e) {
             fail("An illigal argument exception was thrown.");
         }
+    }
+
+    public void testRequestURLWithGetParameters () {
+        APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/json?sensor=true");
+        geocoderApiRequest.setRequestUrl("address={$address}&sensor={$sensor}");
+
+        geocoderApiRequest.setRequestType(RequestType.GET);
+
+        geocoderApiRequest.addRequestParameter("address", "280+N+8th+St.+Boise,+Idaho");
+//        geocoderApiRequest.addRequestParameter("sensor", "false");
+
+        try {
+            APIClient.getInstance().makeRequest(geocoderApiRequest);
+        }
+        catch (IllegalArgumentException e) {
+            fail("An illigal argument exception was thrown.");
+        }
+    }
+
+    public void testRequestWithNewInterface () {
+//        APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/{$response-type}");
+//
+//        geocoderApiRequest.addRequestParameter("response-type", "json");
+//        geocoderApiRequest.addRequestParameter("address", "280 N 8th St. Boise, Idaho", "+");
+//        geocoderApiRequest.addRequestParameter("sensor", true);
+//
+//        testRequestWithNewInterfaceSharedBooleanPassed = false;
+//        testRequestWithNewInterfaceSharedBooleanFailed = false;
+//
+//        // Positive Events
+//        geocoderApiRequest.registerPhaseNotificationCallback(APIRequest.SUCCESS, new APIPhaseNotificationCallback() {
+//            TestClientAPI.testRequestWithNewInterfaceSharedBooleanPassed = true;
+//        });
+//
+//        // Positive Events
+//        geocoderApiRequest.registerPhaseNotificationCallback(APIRequest.FAILURE, new APIPhaseNotificationCallback() {
+//            TestClientAPI.testRequestWithNewInterfaceSharedBooleanFailed = true;
+//        });
+//
+//        while (!testRequestWithNewInterfaceSharedBooleanFailed && !testRequestWithNewInterfaceSharedBooleanPassed) {
+//            continue;
+//        }
+//
+//        APIClient.get(geocoderApiRequest);
+////        APIClient.getInstance().post(geocoderApiRequest);
+//
+//
+
     }
 }
