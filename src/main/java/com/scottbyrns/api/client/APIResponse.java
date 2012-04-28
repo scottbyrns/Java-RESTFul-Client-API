@@ -43,6 +43,7 @@ public class APIResponse<ResponseEntity>
      */
     public ResponseEntity getResponseEntity(Class entityClass)
     {
+
         if (null == responseEntity)
         {
             try
@@ -62,6 +63,35 @@ public class APIResponse<ResponseEntity>
         }
         return responseEntity;
     }
+
+    /**
+     * Get the response entity.
+     * This is an entity hydrated with the raw api response.
+     *
+     * @return The response entity.
+     */
+//    public <ResponseEntity1> ResponseEntity1 getResponseEntity(Class entityClass)
+//    {
+//        ResponseEntity1 responseEntity1 = null;
+//        if (null == responseEntity1)
+//        {
+//            try
+//            {
+//                responseEntity1 = (ResponseEntity1)JSONObjectMapper.<ResponseEntity1>mapJSONStringToEntity(
+//                        getRawResponseString(),
+//                        entityClass
+//                );
+//
+//            }
+//            catch (InvalidJSONStringException e) {
+//                e.printStackTrace();
+//            }
+//            catch (FatalMappingException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return responseEntity1;
+//    }
 
     /**
      * Set the response entity.

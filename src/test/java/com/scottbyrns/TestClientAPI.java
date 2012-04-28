@@ -2,6 +2,7 @@ package com.scottbyrns;
 
 import com.scottbyrns.api.client.APIClient;
 import com.scottbyrns.api.client.APIRequest;
+import com.scottbyrns.api.client.APIResponse;
 import com.scottbyrns.api.client.RequestType;
 import org.junit.Test;
 
@@ -153,4 +154,48 @@ public class TestClientAPI {
 //
 
     }
+
+    public void testRequestWithSuperSimpleInterface () {
+
+        APIResponse response = APIClient.get("http://maps.googleapis.com/maps/api/geocode/json?sensor=true&address=280+N+8th+St.+Boise,+Idaho");
+        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+
+    }
+
+    public void testRequestWithSuperSimpleInterfaceWithParameters () {
+
+        APIResponse response = APIClient.get(
+                "http://maps.googleapis.com/maps/api/geocode/json",
+                new String[]{"sensor", "true"},
+                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"}
+        );
+        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+
+    }
+
+    public void testRequestWithSuperSimpleInterfaceWithParametersWithNoValueKeyParameter () {
+
+        APIResponse response = APIClient.get(
+                "http://maps.googleapis.com/maps/api/geocode/json",
+                new String[]{"sensor", "true"},
+                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"},
+                new String[]{"testParameter"}
+        );
+        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+
+    }
+
+    public void testRequestWithSuperSimpleInterfaceWithParametersWithNoValueKeyParameterAndMultipleValueKeys () {
+
+        APIResponse response = APIClient.get(
+                "http://maps.googleapis.com/maps/api/geocode/json",
+                new String[]{"sensor", "true"},
+                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"},
+                new String[]{"testParameter"},
+                new String[]{"multiValueParameter", "first", "second", "third"}
+        );
+        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+
+    }
 }
+
