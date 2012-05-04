@@ -4,7 +4,7 @@
     <groupId>com.scottbyrns.api</groupId>
     <artifactId>client</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
 
 
     <name>
@@ -56,7 +56,7 @@
     <properties>
 
 
-        <JSONObjectMapper.version>1.0.4</JSONObjectMapper.version>
+        <JSONObjectMapper.version>1.1.0-SNAPSHOT</JSONObjectMapper.version>
 
     </properties>
 
