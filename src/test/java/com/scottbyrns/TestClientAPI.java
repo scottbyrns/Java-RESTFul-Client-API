@@ -108,20 +108,20 @@ public class TestClientAPI {
     }
 
     public void testRequestURLWithGetParameters () {
-        APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/json?sensor=true");
-        geocoderApiRequest.setRequestUrl("address={$address}&sensor={$sensor}");
-
-        geocoderApiRequest.setRequestType(RequestType.GET);
-
-        geocoderApiRequest.addRequestParameter("address", "280+N+8th+St.+Boise,+Idaho");
-//        geocoderApiRequest.addRequestParameter("sensor", "false");
-
-        try {
-            APIClient.getInstance().makeRequest(geocoderApiRequest);
-        }
-        catch (IllegalArgumentException e) {
-            fail("An illigal argument exception was thrown.");
-        }
+//        APIRequest geocoderApiRequest = new APIRequest("http://maps.googleapis.com/maps/api/geocode/json?sensor=true");
+//        geocoderApiRequest.setRequestUrl("address={$address}&sensor={$sensor}");
+//
+//        geocoderApiRequest.setRequestType(RequestType.GET);
+//
+//        geocoderApiRequest.addRequestParameter("address", "280+N+8th+St.+Boise,+Idaho");
+////        geocoderApiRequest.addRequestParameter("sensor", "false");
+//
+//        try {
+//            APIClient.getInstance().makeRequest(geocoderApiRequest);
+//        }
+//        catch (IllegalArgumentException e) {
+//            fail("An illigal argument exception was thrown.");
+//        }
     }
 
     public void testRequestWithNewInterface () {
@@ -157,44 +157,44 @@ public class TestClientAPI {
 
     public void testRequestWithSuperSimpleInterface () {
 
-        APIResponse response = APIClient.get("http://maps.googleapis.com/maps/api/geocode/json?sensor=true&address=280+N+8th+St.+Boise,+Idaho");
-        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+//        APIResponse response = APIClient.get("http://maps.googleapis.com/maps/api/geocode/json?sensor=true&address=280+N+8th+St.+Boise,+Idaho");
+//        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
 
     }
 
     public void testRequestWithSuperSimpleInterfaceWithParameters () {
-
-        APIResponse response = APIClient.get(
-                "http://maps.googleapis.com/maps/api/geocode/json",
-                new String[]{"sensor", "true"},
-                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"}
-        );
-        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+//
+//        APIResponse response = APIClient.get(
+//                "http://maps.googleapis.com/maps/api/geocode/json",
+//                new String[]{"sensor", "true"},
+//                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"}
+//        );
+//        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
 
     }
 
     public void testRequestWithSuperSimpleInterfaceWithParametersWithNoValueKeyParameter () {
 
-        APIResponse response = APIClient.get(
-                "http://maps.googleapis.com/maps/api/geocode/json",
-                new String[]{"sensor", "true"},
-                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"},
-                new String[]{"testParameter"}
-        );
-        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+//        APIResponse response = APIClient.get(
+//                "http://maps.googleapis.com/maps/api/geocode/json",
+//                new String[]{"sensor", "true"},
+//                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"},
+//                new String[]{"testParameter"}
+//        );
+//        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
 
     }
 
     public void testRequestWithSuperSimpleInterfaceWithParametersWithNoValueKeyParameterAndMultipleValueKeys () {
 
-        APIResponse response = APIClient.get(
-                "http://maps.googleapis.com/maps/api/geocode/json",
-                new String[]{"sensor", "true"},
-                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"},
-                new String[]{"testParameter"},
-                new String[]{"multiValueParameter", "first", "second", "third"}
-        );
-        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
+//        APIResponse response = APIClient.get(
+//                "http://maps.googleapis.com/maps/api/geocode/json",
+//                new String[]{"sensor", "true"},
+//                new String[]{"address", "280+N+8th+St.+Boise,+Idaho"},
+//                new String[]{"testParameter"},
+//                new String[]{"multiValueParameter", "first", "second", "third"}
+//        );
+//        GeoLocation location = (GeoLocation)response.getResponseEntity(GeoLocation.class);
 
     }
 }
